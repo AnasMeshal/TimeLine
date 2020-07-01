@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//React
+import React from "react";
+
+//ThemeProvider
+import { ThemeProvider } from "styled-components";
+
+//Style
+import {
+  GlobalStyle,
+  TitleWrapper,
+  GoUp,
+  GoUpWrapper,
+} from "./styles";
+
+//Components
+import EventList from "./components/EventList";
+
+const theme = {
+  backgroundColor: "#ced6e0",
+  textColor: "black",
+  borderColor: "black",
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <a href="top"></a>
+      <TitleWrapper>
+        <h1>Welcome To My Life</h1>
+      </TitleWrapper>
+
+      <EventList></EventList>
+
+      <GoUpWrapper>
+      <GoUp href="#top">🔼</GoUp>
+      </GoUpWrapper>
+    </ThemeProvider>
   );
 }
 
